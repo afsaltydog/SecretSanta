@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @group.name %>
+</p>
+
+<p>
+  <strong>Max amt:</strong>
+  <%= @group.max_amt %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @group.user.name %>
+</p>
+
+<p>
+  <a href="/groups/<%= @group.id %>/randomizer">Randomizer</a>
+</p>
+
+<br>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Spouse</th>
+      <th>Last yr</th>
+      <th>Last 2yr</th>
+      <th>Current</th>
+      <th>Group</th>
+      <th>Wishlist</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.name %></td>
+        <td><%= person.spouse %></td>
+        <td><%= person.last_yr %></td>
+        <td><%= person.last_2yr %></td>
+        <td><%= person.current %></td>
+        <td><%= person.group.name %></td>
+        <td><%= Person.find(person.id).wish_list.pluck(:item) %></td>
+        <td><%= link_to 'Show', person %></td>
+        <td><%= link_to 'Edit', edit_person_path(person) %></td>
+        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_group_path(@group) %> | 
+<%= link_to 'Back', groups_path %> | 
+<%= link_to 'People', people_path %>
+<!--<a href="/users/<%= session[:user_id] %>">Back</a>-->
+<!--<a href="/groups/<%= @group_id %>">Back</a>-->

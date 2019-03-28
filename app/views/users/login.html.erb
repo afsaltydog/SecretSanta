@@ -1,0 +1,36 @@
+<h1>Login</h1>
+
+<form action='login_user' method='post' name='login'>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <% if @user %>
+        <% if @user.errors.present? %>
+        <div id="error_explanation">
+            <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+        <% end %>
+    <% end %>
+    <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+  
+    <div class="field">
+      <label>Email:</label>
+      <input type="text", name="email">
+    </div>
+  
+    <div class="field">
+        <label>Password:</label>
+        <input type="password", name="password">
+    </div>
+  
+    <div class="actions">
+        <button type="submit" name='login'>Login</button>
+    </div>
+  </form>
+  
+
+<%= link_to 'Back', '/' %>

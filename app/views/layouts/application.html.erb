@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SecretSanta</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="header">
+      <h1>Secret Santa</h1>
+    </div>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |e| %>
+        <%= e %>
+      <% end %>
+    <% end %>
+    <% if current_user %>
+      <form action="/logout/<%=current_user.id%>" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method">
+        <input type="submit" value="Log Out" id="logout_button">
+      </form>
+    <% end %> 
+    <%= yield %>
+  </body>
+</html>

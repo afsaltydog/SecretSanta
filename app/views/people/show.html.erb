@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @person.name %>
+</p>
+
+<p>
+  <strong>Spouse:</strong>
+  <%= @person.spouse %>
+</p>
+
+<p>
+  <strong>Last yr:</strong>
+  <%= @person.last_yr %>
+</p>
+
+<p>
+  <strong>Last 2yr:</strong>
+  <%= @person.last_2yr %>
+</p>
+
+<p>
+  <strong>Current:</strong>
+  <%= @person.current %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @person.group.name %>
+</p>
+
+<p>
+  <strong>Wishlist:</strong>
+  <%= Person.find(@person.id).wish_list.pluck(:item) %>
+  <a href="/people/<%= @person.id %>/wishlist">Edit</a>
+</p>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>

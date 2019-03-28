@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @wishlist.item %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @wishlist.description %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @wishlist.person.name %>
+</p>
+
+<%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |
+<a href="/people/<%= session[:person_id] %>/wishlist">Back</a>

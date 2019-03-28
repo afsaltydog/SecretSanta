@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Max $ Amt</th>
+      <th>User</th>
+      <th>Member Count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groupArray.each do |group| %>
+      <tr>
+        <td><%= group[:name] %></td>
+        <td><%= group[:max_amt] %></td>
+        <td><%= group[:user].name %></td>
+        <td><%= group[:count] %></td>
+        <td><%= link_to 'Show', group[:group] %></td>
+        <td><%= link_to 'Edit', edit_group_path(group[:group]) %></td>
+        <td><%= link_to 'Destroy', group[:group], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Group', new_group_path %> | 
+<a href="/users/<%= session[:user_id] %>">Back</a>

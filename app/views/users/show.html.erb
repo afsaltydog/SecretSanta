@@ -1,0 +1,22 @@
+<h1>Welcome, <%= current_user.name %></h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>isAdmin:</strong>
+  <%= @user.isAdmin %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Users', users_path %> | 
+<%= link_to 'Groups', groups_path %>

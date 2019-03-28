@@ -1,0 +1,6 @@
+<h1>Editing Wishlist</h1>
+
+<%= render 'form', wishlist: @wishlist %>
+
+<%= link_to 'Show', @wishlist %> |
+<a href="/people/<%= session[:person_id] %>/wishlist">Back</a>
