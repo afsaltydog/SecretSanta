@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  spouse: MyString
+  last_yr: MyString
+  last_2yr: MyString
+  current: MyString
+  group: one
+
+two:
+  name: MyString
+  spouse: MyString
+  last_yr: MyString
+  last_2yr: MyString
+  current: MyString
+  group: two
